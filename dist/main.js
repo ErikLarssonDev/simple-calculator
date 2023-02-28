@@ -15,8 +15,8 @@ const fs = require("fs");
 const events = require("events");
 const calculator_1 = require("./calculator");
 /**
- *
- * @param command A string on the form <register> <operation> <value>
+ * This function takes in the command and executes the corresponding action.
+ * @param command
  */
 const handleCommand = (command) => {
     if (command.toLowerCase() === "quit") {
@@ -34,8 +34,8 @@ const handleCommand = (command) => {
 };
 exports.handleCommand = handleCommand;
 /**
- *
- * @param filePath This function takes in a relative file path and then executes the handleCommand function on each line.
+ * This function takes in a relative file path and then executes the handleCommand function on each line.
+ * @param filePath
  */
 const readFromFile = (filePath) => __awaiter(void 0, void 0, void 0, function* () {
     (function processLineByLine() {

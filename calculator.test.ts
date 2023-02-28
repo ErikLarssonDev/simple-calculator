@@ -120,13 +120,12 @@ describe("invalid input", () => {
 
     calculate("A add");
     calculate("invalid command");
-    calculate("-invalid command");
+    calculate("-invalid add 2");
     calculate("test add 2 2");
     printRegister("#€%&/()=?");
 
     expect(consoleSpy).toHaveBeenCalledWith("Invalid input: A add");
     expect(consoleSpy).toHaveBeenCalledWith("Invalid input: invalid command");
-    expect(consoleSpy).toHaveBeenCalledWith("Invalid operation: command");
     expect(consoleSpy).toHaveBeenCalledWith("Invalid register name: -invalid");
     expect(consoleSpy).toHaveBeenCalledWith("Invalid input: test add 2 2");
     expect(consoleSpy).toHaveBeenCalledWith("Invalid register name: #€%&/()=?");
@@ -139,6 +138,15 @@ describe("invalid input", () => {
     calculate("5 add 5")
  
     expect(consoleSpy).toHaveBeenCalledWith("Invalid register name: 5");
+
+    consoleSpy.mockRestore();
+  });
+  it("should not accept invalid operations", () => {
+    const consoleSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+
+    calculate("a ad 5")
+ 
+    expect(consoleSpy).toHaveBeenCalledWith("Invalid operation: ad");
 
     consoleSpy.mockRestore();
   });

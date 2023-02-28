@@ -87,12 +87,11 @@ describe("invalid input", () => {
         const consoleSpy = jest.spyOn(console, "log").mockImplementation(() => { });
         (0, calculator_1.calculate)("A add");
         (0, calculator_1.calculate)("invalid command");
-        (0, calculator_1.calculate)("-invalid command");
+        (0, calculator_1.calculate)("-invalid add 2");
         (0, calculator_1.calculate)("test add 2 2");
         (0, calculator_1.printRegister)("#€%&/()=?");
         expect(consoleSpy).toHaveBeenCalledWith("Invalid input: A add");
         expect(consoleSpy).toHaveBeenCalledWith("Invalid input: invalid command");
-        expect(consoleSpy).toHaveBeenCalledWith("Invalid operation: command");
         expect(consoleSpy).toHaveBeenCalledWith("Invalid register name: -invalid");
         expect(consoleSpy).toHaveBeenCalledWith("Invalid input: test add 2 2");
         expect(consoleSpy).toHaveBeenCalledWith("Invalid register name: #€%&/()=?");
@@ -102,6 +101,12 @@ describe("invalid input", () => {
         const consoleSpy = jest.spyOn(console, "log").mockImplementation(() => { });
         (0, calculator_1.calculate)("5 add 5");
         expect(consoleSpy).toHaveBeenCalledWith("Invalid register name: 5");
+        consoleSpy.mockRestore();
+    });
+    it("should not accept invalid operations", () => {
+        const consoleSpy = jest.spyOn(console, "log").mockImplementation(() => { });
+        (0, calculator_1.calculate)("a ad 5");
+        expect(consoleSpy).toHaveBeenCalledWith("Invalid operation: ad");
         consoleSpy.mockRestore();
     });
 });
