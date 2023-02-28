@@ -1,4 +1,4 @@
-# sectra-programming-assignment
+# SECTRA-programming-assignment
 
 SECTRA – PROGRAMMING ASSIGNMENT – SIMPLE CALCULATOR
 
