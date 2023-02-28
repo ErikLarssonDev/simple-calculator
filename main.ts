@@ -4,10 +4,10 @@ const events = require("events");
 import { calculate, printRegister } from "./calculator";
 
 /**
- *
- * @param command A string on the form <register> <operation> <value>
+ * This function takes in the command and executes the corresponding action. 
+ * @param command 
  */
-const handleCommand = (command: string) => {
+const handleCommand = (command: string): void => {
   if (command.toLowerCase() === "quit") {
     // In the examples it should be possible to quit the program with both "quit" and "QUIT".
     rl.close();
@@ -21,8 +21,8 @@ const handleCommand = (command: string) => {
 };
 
 /**
- *
- * @param filePath This function takes in a relative file path and then executes the handleCommand function on each line.
+ * This function takes in a relative file path and then executes the handleCommand function on each line.
+ * @param filePath 
  */
 const readFromFile = async (filePath: string) => {
   (async function processLineByLine() {
