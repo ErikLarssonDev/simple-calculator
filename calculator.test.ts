@@ -4,7 +4,6 @@ import {
   registers,
   resetRegisters,
 } from "./calculator";
-import { readFromFile } from "./main";
 
 beforeEach(() => {
   resetRegisters();
@@ -131,6 +130,15 @@ describe("invalid input", () => {
     expect(consoleSpy).toHaveBeenCalledWith("Invalid register name: -invalid");
     expect(consoleSpy).toHaveBeenCalledWith("Invalid input: test add 2 2");
     expect(consoleSpy).toHaveBeenCalledWith("Invalid register name: #€%&/()=?");
+
+    consoleSpy.mockRestore();
+  });
+  it("should not accept numbers as registers", () => {
+    const consoleSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+
+    calculate("5 add 5")
+ 
+    expect(consoleSpy).toHaveBeenCalledWith("Invalid register name: 5");
 
     consoleSpy.mockRestore();
   });

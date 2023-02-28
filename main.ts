@@ -66,4 +66,4 @@ rl.on("line", (input: string) => {
   handleCommand(command);
 });
 
-export { readFromFile };
+export { readFromFile, handleCommand };

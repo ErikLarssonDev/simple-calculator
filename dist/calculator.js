@@ -7,6 +7,15 @@ const resetRegisters = () => {
     exports.registers = registers = {};
 };
 exports.resetRegisters = resetRegisters;
+const validateRegisterName = (register) => {
+    if (!register.match(/^(?=.*[a-zA-Z])[a-zA-Z0-9]+$/)) {
+        console.log(`Invalid register name: ${register}`);
+        return;
+    }
+    else {
+        return true;
+    }
+};
 function calculate(command) {
     const parts = command.trim().split(" ");
     const register = parts[0];
@@ -16,12 +25,13 @@ function calculate(command) {
         : Number(parts[2]); // Checks if the value is a number or a register. If it is a register we will get the value of the register, otherwise we get the number.
     if (parts[3]) {
         console.log("Invalid input: " + command);
+        return;
     }
-    if (!value) {
+    if (!value && value != 0) {
         console.log("Invalid input: " + command);
+        return;
     }
-    if (!register.match(/^[a-z0-9]+$/i)) {
-        console.log(`Invalid register name: ${register}`);
+    if (!validateRegisterName(register)) {
         return;
     }
     switch (operation) {
@@ -40,8 +50,7 @@ function calculate(command) {
 }
 exports.calculate = calculate;
 function printRegister(register) {
-    if (!register.match(/^[a-z0-9]+$/i)) {
-        console.log(`Invalid register name: ${register}`);
+    if (!validateRegisterName(register)) {
         return;
     }
     console.log(registers[register] || 0);

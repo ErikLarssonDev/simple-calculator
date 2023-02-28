@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.readFromFile = void 0;
+exports.handleCommand = exports.readFromFile = void 0;
 const readline = require("readline");
 const fs = require("fs");
 const events = require("events");
@@ -32,6 +32,7 @@ const handleCommand = (command) => {
         (0, calculator_1.calculate)(command);
     }
 };
+exports.handleCommand = handleCommand;
 /**
  *
  * @param filePath This function takes in a relative file path and then executes the handleCommand function on each line.

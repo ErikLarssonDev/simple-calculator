@@ -98,4 +98,10 @@ describe("invalid input", () => {
         expect(consoleSpy).toHaveBeenCalledWith("Invalid register name: #€%&/()=?");
         consoleSpy.mockRestore();
     });
+    it("should not accept numbers as registers", () => {
+        const consoleSpy = jest.spyOn(console, "log").mockImplementation(() => { });
+        (0, calculator_1.calculate)("5 add 5");
+        expect(consoleSpy).toHaveBeenCalledWith("Invalid register name: 5");
+        consoleSpy.mockRestore();
+    });
 });
