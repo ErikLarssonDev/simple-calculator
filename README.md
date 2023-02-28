@@ -32,7 +32,7 @@ SECTRA – PROGRAMMING ASSIGNMENT – SIMPLE CALCULATOR
 
 # Incorrect example
 
-# These instructions cannot produce the desired output. This is probably due to missing commands above the example. 
+These instructions cannot produce the desired output. This is probably due to missing commands above the example. 
 
 result add revenue
 result subtract costs
