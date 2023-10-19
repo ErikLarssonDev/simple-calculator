@@ -1,6 +1,4 @@
-# SECTRA-programming-assignment
-
-SECTRA – PROGRAMMING ASSIGNMENT – SIMPLE CALCULATOR
+# Simple calculator
 
 # Tech Stack
 
