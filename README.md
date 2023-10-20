@@ -28,18 +28,3 @@
 - Pascal case for types
 - Upper case and snail case for .env variables
 
-# Incorrect example
-
-These instructions cannot produce the desired output. This is probably due to missing commands above the example. 
-
-result add revenue
-result subtract costs
-revenue add 200
-costs add salaries
-salaries add 20
-salaries multiply 5
-costs add 10
-print result
-QUIT
-The output should be:
-90
